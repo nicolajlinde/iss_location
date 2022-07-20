@@ -39,6 +39,7 @@ def is_iss_overhead():
     print(lat_closeness)
     print(lng_closeness)
 
+
 def is_night_time():
     response = requests.get("https://api.sunrise-sunset.org/json", params=parameters)
     response.raise_for_status()
