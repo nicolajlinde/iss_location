@@ -3,13 +3,15 @@ from datetime import datetime
 import math
 import smtplib
 import time
+import os
+from dotenv import load_dotenv
 
+load_dotenv()
 
-# MY_LAT = 56.215519 # Your latitude
-MY_LAT = -10.3606 # Your latitude
-MY_LONG = 103.265740 # Your longitude
-USER = "nicowishesyouahappybirthday@gmail.com"
-PASSWORD = "xmebpypmfzhilrnk"
+USER = os.getenv('USER')
+PASSWORD = os.getenv('PASSWORD')
+MY_LAT = os.getenv('MY_LAT')
+MY_LONG = os.getenv('MY_LONG')
 
 # Sunset and Sunrise only needs to run once
 parameters = {
@@ -33,11 +35,6 @@ def is_iss_overhead():
 
     if lat_closeness and lng_closeness:
         return True
-
-    print(iss_latitude)
-    print(iss_longitude)
-    print(lat_closeness)
-    print(lng_closeness)
 
 
 def is_night_time():
